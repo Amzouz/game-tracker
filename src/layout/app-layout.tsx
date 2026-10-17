@@ -1,10 +1,11 @@
 import { Outlet } from "react-router";
-//penser ici a ajouter le header et le footer que je vais créer dans layout
+import { AppHeader } from "./app-header";
 
 export function Applayout() {
   return (
-    <div className="flex flex-col h-screen">
-      <main className="flex-1 container mx-auto py-10">
+    <div className="flex gap-10 h-screen bg-primary-900 p-6">
+      <AppHeader />
+      <main className="flex-1 container mx-auto">
         <Outlet />
       </main>
     </div>
