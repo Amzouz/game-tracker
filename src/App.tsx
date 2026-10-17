@@ -1,5 +1,21 @@
-function App() {
-  return <h1 className="text-3xl font-bold text-red-500">Mes jeux</h1>;
-}
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { Applayout } from "./layout/app-layout";
+import { Home } from "./pages/home";
 
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Applayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
