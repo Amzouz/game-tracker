@@ -1,8 +1,11 @@
+import { Trash2 } from "lucide-react";
+import { useGame } from "../context/game-context";
 import type { Game } from "../types/game";
 
 type GameCardProps = { game: Game };
 
 export default function GameCard({ game }: GameCardProps) {
+  const { deleteGame } = useGame();
   return (
     <article className="flex flex-row gap-6 border-2 border-primary-300 rounded-3xl p-2">
       <div className="flex gap-4">
@@ -23,6 +26,13 @@ export default function GameCard({ game }: GameCardProps) {
         {game.price && <p>{game.price}</p>}
         <p>{game.review}</p>
       </div>
+      <button
+        type="button"
+        onClick={() => deleteGame(game.id)}
+        className="cursor-pointer"
+      >
+        <Trash2 />
+      </button>
     </article>
   );
 }

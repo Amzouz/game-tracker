@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { Applayout } from "./layout/app-layout";
 import { Home } from "./pages/home";
 import { AddGame } from "./pages/add-game";
+import { GamesProvider } from "./context/game-context";
 
 const router = createBrowserRouter([
   {
@@ -22,5 +23,5 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return <GamesProvider><RouterProvider router={router} /></GamesProvider>;
 }
